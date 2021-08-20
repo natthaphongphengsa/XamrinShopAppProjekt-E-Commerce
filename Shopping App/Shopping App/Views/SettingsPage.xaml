@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shopping_App.Views.SettingsPage"
+             xmlns:vm="clr-namespace:Shopping_App.ViewModels"             
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:SettingsViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <Style TargetType="Button">            
+            <Setter Property="TextColor" Value="Gray"/>
+            <Setter Property="Background" Value="white"/>
+            <Setter Property="HeightRequest" Value="40"/>
+        </Style>
+    </ContentPage.Resources>
+    <Grid>
+        <ScrollView>
+            <Grid RowDefinitions="Auto, Auto, Auto, *">
+                <Grid BackgroundColor="WhiteSmoke">
+                    <Grid Padding="6">
+                        <Label Text="Account Settings"></Label>
+                        <Button Grid.Row="1" Text="My Account"/>
+                        <Button Grid.Row="2" Text="Change Password"/>
+                        <Button Grid.Row="3" Text="Address Book"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1" BackgroundColor="WhiteSmoke">
+                    <Grid Padding="6">
+                        <Label Text="App settings"></Label>
+                        <Button Grid.Row="1" Text="Change Themes"/>
+                        <Button Grid.Row="4" Text="Language"/>
+                        <Button Grid.Row="2" Text="Notification"/>
+                        <Button Grid.Row="3" Text="Version"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

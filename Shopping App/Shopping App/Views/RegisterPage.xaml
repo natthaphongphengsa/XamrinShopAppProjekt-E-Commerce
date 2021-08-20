@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shopping_App.Views.RegisterPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             Title="{Binding Title}">
+
+    <!--<ContentPage.BindingContext>
+        <vm:RegisterViewModel />
+    </ContentPage.BindingContext>-->
+
+    <ContentPage.Content>
+        <Grid Margin="16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="1" VerticalOptions="Center">
+                <Image x:Name="Userimage" WidthRequest="20"></Image>
+                <Button Text="Add image" 
+                    Clicked="OnAddImageButtonClicked" />
+                <Label Text="Please enter your Username" />
+                <Entry Text="{Binding Username}" Placeholder="Username" />
+                
+                <Label Text="Please enter your Password"/>
+                <Entry x:Name="PasswordEntry" Text="{Binding Password}" Placeholder="Password"/>
+                
+                <Label Text="Please enter your Email-address"/>
+                <Entry x:Name="EmailEntry" Text="{Binding Email}" Placeholder="Email"/>
+                <Label x:Name="ErrorEmail"></Label>
+            </StackLayout>
+            <Grid Grid.Row="2">
+                <Button Grid.Row="1" Text="Create Account" Clicked="CreateUserAccount" />
+                <Button Grid.Row="2" Text="Cancel" Clicked="OnCancelButtonClicked"></Button>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

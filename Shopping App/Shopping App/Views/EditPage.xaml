@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Shopping_App.ViewModels"
+             x:Class="Shopping_App.Views.EditPage">
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior Command="{Binding GoBackCommand}" IconOverride="BackArrow.png"></BackButtonBehavior>
+    </Shell.BackButtonBehavior>
+
+    <ScrollView>
+        <StackLayout Margin="20">
+            <!--<Editor x:Name="name" Placeholder="Product name" Text="{Binding Title, Mode=TwoWay}" FontSize="Medium" />
+            <Editor x:Name="description" Placeholder="Product Description" Text="{Binding Description, Mode=TwoWay}" FontSize="Medium"/>
+            <Editor x:Name="specifikation" Placeholder="Product Specifikation" Text="{Binding Specifikation, Mode=TwoWay}" FontSize="Medium"/>
+            <Editor x:Name="quantity" Placeholder="Quantity" Text="{Binding Quantity, Mode=TwoWay}" FontSize="Medium"/>
+            <Editor x:Name="price" Placeholder="Price" WidthRequest="80" Text="{Binding Price, Mode=TwoWay}" FontSize="Medium"/>-->
+            <Editor x:Name="name" Placeholder="Product name" Text="{Binding Title, Mode=TwoWay}" FontSize="Medium" />
+            <ImageButton 
+                BackgroundColor="Transparent"
+                x:Name="GetImage" Source="EmptyImage.png" 
+                Clicked="OnAddImageButtonClicked" Aspect="AspectFit"
+                HeightRequest="200" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center">
+            </ImageButton>
+            <Editor x:Name="description" Placeholder="Product Description" HeightRequest="70" Text="{Binding Description, Mode=TwoWay}" FontSize="Medium"/>
+            <Editor x:Name="specifikation" Placeholder="Product Specifikation" HeightRequest="70" Text="{Binding Specifikation, Mode=TwoWay}" FontSize="Medium"/>
+            <Picker 
+                Title="Quantity"
+                SelectedIndexChanged="QuantityEntry_SelectedIndexChanged"
+                x:DataType="local:EditItemViewModel"
+                Grid.Column="1" 
+                x:Name="QuantityEntry" ItemsSource="{Binding Quantitynumber}"/>
+            <Picker 
+                Title="Quality"
+                SelectedIndexChanged="QualityEntry_SelectedIndexChangedAsync"
+                x:DataType="local:EditItemViewModel"
+                Grid.Column="2" ItemDisplayBinding="{Binding Name}" 
+                x:Name="QualityEntry" ItemsSource="{Binding Qualitytype}"/>
+            <Editor x:Name="price" Placeholder="Price" Text="{Binding Price, Mode=TwoWay}" FontSize="Medium"/>
+
+            <Grid ColumnDefinitions="*,*">
+                <Button Text="Update" Command="{Binding UpdateCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Grid.Column="1" Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

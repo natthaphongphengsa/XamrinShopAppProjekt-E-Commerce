@@ -1,0 +1,117 @@
+{
+  "images": [
+    {
+      "scale": "2x",
+      "size": "20x20",
+      "idiom": "iphone",
+      "filename": "Lager 1.png"
+    },
+    {
+      "scale": "3x",
+      "size": "20x20",
+      "idiom": "iphone",
+      "filename": "Lager 2.png"
+    },
+    {
+      "scale": "2x",
+      "size": "29x29",
+      "idiom": "iphone",
+      "filename": "Lager 3.png"
+    },
+    {
+      "scale": "3x",
+      "size": "29x29",
+      "idiom": "iphone",
+      "filename": "Lager 4.png"
+    },
+    {
+      "scale": "2x",
+      "size": "40x40",
+      "idiom": "iphone",
+      "filename": "Lager 5.png"
+    },
+    {
+      "scale": "3x",
+      "size": "40x40",
+      "idiom": "iphone",
+      "filename": "Lager 6.png"
+    },
+    {
+      "scale": "2x",
+      "size": "60x60",
+      "idiom": "iphone",
+      "filename": "Lager 61.png"
+    },
+    {
+      "scale": "3x",
+      "size": "60x60",
+      "idiom": "iphone",
+      "filename": "Lager 7.png"
+    },
+    {
+      "scale": "1x",
+      "size": "20x20",
+      "idiom": "ipad",
+      "filename": "Lager 8.png"
+    },
+    {
+      "scale": "2x",
+      "size": "20x20",
+      "idiom": "ipad",
+      "filename": "Lager 11.png"
+    },
+    {
+      "scale": "1x",
+      "size": "29x29",
+      "idiom": "ipad",
+      "filename": "Lager 9.png"
+    },
+    {
+      "scale": "2x",
+      "size": "29x29",
+      "idiom": "ipad",
+      "filename": "Lager 31.png"
+    },
+    {
+      "scale": "1x",
+      "size": "40x40",
+      "idiom": "ipad",
+      "filename": "Lager 12.png"
+    },
+    {
+      "scale": "2x",
+      "size": "40x40",
+      "idiom": "ipad",
+      "filename": "Lager 51.png"
+    },
+    {
+      "scale": "1x",
+      "size": "76x76",
+      "idiom": "ipad",
+      "filename": "Lager 10.png"
+    },
+    {
+      "scale": "2x",
+      "size": "76x76",
+      "idiom": "ipad",
+      "filename": "Lager 111.png"
+    },
+    {
+      "scale": "2x",
+      "size": "83.5x83.5",
+      "idiom": "ipad",
+      "filename": "Lager 121.png"
+    },
+    {
+      "scale": "1x",
+      "size": "1024x1024",
+      "idiom": "ios-marketing",
+      "filename": "Lager 13.png"
+    }
+  ],
+  "properties": {},
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

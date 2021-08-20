@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shopping_App.Views.SearchItemPage"             
+             Title="Search"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:model="clr-namespace:Shopping_App.Models" xmlns:local="clr-namespace:Shopping_App.ViewModels"
+             ios:Page.UseSafeArea="true">
+
+    <!--x:Name="SearchResultListView"-->
+    
+    <!--<StackLayout Orientation="Vertical">
+        <SearchBar x:Name="Searchable" SearchButtonPressed="Searchable_SearchButtonPressed" TextChanged="Searchable_TextChanged" />
+        <Grid>
+            <ListView x:Name="SearchResultListView" ItemTapped="OnItemClicked"/>
+        </Grid>
+    </StackLayout>-->
+
+    <Grid Padding="10,0" BackgroundColor="WhiteSmoke" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Padding="0,10,0,0">
+            <Frame Padding="0" CornerRadius="5">
+                <SearchBar BackgroundColor="White" x:Name="Searchable" SearchButtonPressed="Searchable_SearchButtonPressed" TextChanged="Searchable_TextChanged" />
+            </Frame>
+        </Grid>
+        <CollectionView x:Name="SearchResultListView" SelectionMode="None" Grid.Row="1">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="10" HorizontalItemSpacing="10" Span="1"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Item">
+                    <Frame CornerRadius="5">
+                        <Grid BackgroundColor="White">
+                            <!--<Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>-->
+                            <StackLayout x:DataType="model:Item">
+                                <Grid>
+                                    <Image Source="{Binding Image}" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill" WidthRequest="20"></Image>
+                                    <Label 
+                                        FontSize="12" 
+                                        Text="{Binding Title}" LineBreakMode="NoWrap" 
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        VerticalOptions="Center" HorizontalOptions="End" WidthRequest="240"/>
+                                </Grid>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer                                              
+                                        NumberOfTapsRequired="1"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
+                                        CommandParameter="{Binding .}">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

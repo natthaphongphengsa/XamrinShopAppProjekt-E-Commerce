@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shopping_App.Views.FlyoutHeader">
+
+    <ContentView>
+        <StackLayout>
+            <Frame Padding="0">
+                <Grid>
+                    <Image Source="Header.jpg" Aspect="AspectFill"/>
+                    <Frame
+                        Scale="0.6"
+                        HasShadow="True"
+                        CornerRadius="100"
+                        HeightRequest="200"
+                        WidthRequest="200"
+                        HorizontalOptions="Center"
+                        Padding="3"
+                        IsClippedToBounds="True">
+                        <Image
+                            x:Name="ProfileImage"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Scale="1.4"/>
+                    </Frame>
+                    <Frame
+                        BackgroundColor="Transparent" 
+                        CornerRadius="100"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Padding="0"
+                        IsClippedToBounds="True">
+                    </Frame>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentView>
+
+    <!--<Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <ContentView HeightRequest="210">
+                <StackLayout>
+                    <Frame Padding="0">
+                        <Grid>
+                            <Image Source="Header.jpg" Aspect="AspectFill"/>
+                            <Frame
+                                Scale="0.6"
+                                CornerRadius="100"
+                                HeightRequest="200"
+                                WidthRequest="200"
+                                HorizontalOptions="Center"
+                                Padding="3"
+                                IsClippedToBounds="True">
+                                <Image 
+                                    Source="{Binding FlyOutProfileImage}"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Scale="1.4"/>
+                            </Frame>
+                            <Frame 
+                                BackgroundColor="Transparent" 
+                                CornerRadius="100"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                Padding="0"
+                                IsClippedToBounds="True">
+                                <Grid BackgroundColor="Transparent" HeightRequest="120" WidthRequest="120">
+                                    <Button 
+                                        BackgroundColor="Transparent" 
+                                        TextColor="#2196F3"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        WidthRequest="100"
+                                        HeightRequest="100"
+                                        x:Name="ProfileBTN"
+                                        Clicked="AddImageClicked">
+                                    </Button>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>-->
+</ContentView>

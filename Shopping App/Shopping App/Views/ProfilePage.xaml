@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:model="clr-namespace:Shopping_App.Models" 
+             xmlns:local="clr-namespace:Shopping_App.ViewModels"
+             x:Class="Shopping_App.Views.ProfilePage"             
+             Title="Profile">
+
+    <RefreshView x:DataType="local:ProfileViewModel" Command="{Binding LoadProfileCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <ScrollView>
+            <Grid>
+                <Grid Grid.RowDefinitions="Auto,Auto,Auto">
+                    <Frame Padding="0" HeightRequest="260">
+                        <Grid HeightRequest="260" RowDefinitions="Auto,Auto,Auto">
+                            <Grid HeightRequest="200">
+                                <Image x:Name="ProfileBackground" Aspect="AspectFill" Scale="1.60"/>
+                                <Frame                            
+                                Scale="0.7"
+                                CornerRadius="100"
+                                HeightRequest="200"
+                                WidthRequest="200"
+                                HorizontalOptions="Center"
+                                Padding="0"
+                                IsClippedToBounds="True">
+                                    <Image 
+                                x:Name="ProfileImage"                            
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                Scale="1.8"/>
+                                </Frame>
+                                <Frame 
+                                BackgroundColor="Transparent" 
+                                CornerRadius="100"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                Padding="0"
+                                IsClippedToBounds="True">
+                                    <Grid BackgroundColor="Transparent" HeightRequest="140" WidthRequest="140">
+                                        <Button 
+                                        BackgroundColor="Transparent" 
+                                        TextColor="#2196F3"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        WidthRequest="100"
+                                        HeightRequest="100"
+                                        x:Name="ProfileBTN"
+                                        Clicked="AddImageClicked">
+                                        </Button>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                            <Grid Grid.Row="1" RowDefinitions="Auto,Auto,Auto">
+                                <CollectionView Grid.Row="0" x:Name="Userview" ItemsSource="{Binding Users}">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate x:DataType="model:User">
+                                            <Grid>
+                                                <Label                                                
+                                                VerticalOptions="Center" 
+                                                HorizontalOptions="Center"                                                  
+                                                Text="{Binding Username}"
+                                                FontSize="24" 
+                                                TextColor="#484949"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                    <Frame Grid.Row="3" Padding="6">
+                        <Grid BackgroundColor="AliceBlue" Grid.Row="1" RowDefinitions="Auto,Auto,Auto">
+                            <Grid>
+                                <Button ImageSource="ItemIcon.png" Text="Products" FontFamily="arial" HeightRequest="60" Clicked="ProductsClicked"></Button>
+                                <Button ImageSource="Favorite.png" Grid.Column="1" Text="Favorite" FontFamily="arial" Clicked="FavoriteClicked" ></Button>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Button ImageSource="OrderIcon.png" Grid.Column="0" Text="Orders" FontFamily="arial" HeightRequest="60" Clicked="OrdersClicked"></Button>
+                                <Button ImageSource="CustomerIcon.png" Grid.Column="1" Text="Customer" FontFamily="arial" Clicked="CustomerClicked"></Button>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Button ImageSource="PaymentIcon.png" Grid.Column="0" Text="Payment" FontFamily="arial" HeightRequest="60" Clicked="PaymentClicked"></Button>
+                                <Button ImageSource="RecieptIcon.png" Grid.Column="1" Text="Reciept" FontFamily="arial" Clicked="RecieptClicked"></Button>
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </RefreshView>
+</ContentPage>

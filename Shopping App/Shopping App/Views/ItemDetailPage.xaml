@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:Shopping_App.ViewModels" xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             x:Class="Shopping_App.Views.ItemDetailPage"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:ItemDetailViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView BackgroundColor="AliceBlue">
+        <Grid Padding="10,10" RowDefinitions="Auto,Auto,Auto">
+            <Frame CornerRadius="5">
+                <Grid Padding="0,0">
+                    <Grid Grid.RowDefinitions="Auto,Auto,Auto">
+                        <Grid>
+                            <Label TextColor="black" Text="{Binding Title}" FontSize="18"/>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <StackLayout>
+                                <Frame
+                                    HasShadow="True"
+                                    BorderColor="Transparent"
+                                    CornerRadius="5"
+                                    HeightRequest="300"
+                                    Padding="5"
+                                    VerticalOptions="CenterAndExpand">
+                                    <Image Source="{Binding Image}" Aspect="AspectFit"></Image>
+                                </Frame>
+                            </StackLayout>
+                        </Grid>
+                        <Grid Grid.Row="2" >
+                            <Grid>
+                                <Image 
+                                    Margin="22,0,0,0" 
+                                    WidthRequest="50" 
+                                    HeightRequest="50" 
+                                    Aspect="AspectFit" 
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Start" 
+                                    Source="{Binding Icon}"/>
+                                <Label 
+                                    Grid.Row="0"
+                                    Margin="30,15,0,0"
+                                    HeightRequest="30" 
+                                    x:Name="Stock" 
+                                    TextColor="Black" 
+                                    Padding="2" 
+                                    HorizontalTextAlignment="Center" 
+                                    VerticalOptions="Start" 
+                                    Text="{Binding Quantity}" 
+                                    FontSize="Medium"/>
+                            </Grid>
+                            <Grid Grid.Column="1" >
+                                <Frame BorderColor="Black" VerticalOptions="Center" HorizontalOptions="Center">
+                                    <StackLayout Orientation="Horizontal">
+                                        <ImageButton                                              
+                                            Source="minus.png"
+                                            BackgroundColor="Transparent"
+                                            Command="{Binding MinusCommand}"
+                                            WidthRequest="24" 
+                                            VerticalOptions="Center" />
+                                        <Label                                             
+                                            Text="{Binding Number}"
+                                            TextColor="Green"
+                                            HorizontalTextAlignment="Center"
+                                            WidthRequest="20"
+                                            VerticalOptions="Center" />
+                                        <ImageButton 
+                                            Source="plusIcon.png"
+                                            BackgroundColor="Transparent"
+                                            Command="{Binding PlusCommand}" 
+                                            WidthRequest="24"
+                                            VerticalOptions="Center" />
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <Grid Grid.Column="1">
+                                <Label  
+                                    Margin="0,0,30,0"
+                                    HorizontalOptions="End"
+                                    VerticalOptions="End"                                                                                                                                                
+                                    Text="{Binding Price}" 
+                                    LineBreakMode="NoWrap"                                     
+                                    FontSize="32" />
+                                <Label 
+                                    Margin="0,0,5,18"                                                
+                                    FontSize="28"                                            
+                                    Text="Kr"
+                                    VerticalOptions="End"
+                                    HorizontalOptions="End" />
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="4" RowDefinitions="Auto,Auto,Auto">
+                            <Button HeightRequest="50" Text="Add to cart" Command="{Binding AddToCartCommand}"></Button>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Frame>
+            <Grid Grid.Row="1" RowDefinitions="Auto, Auto,Auto">
+                <Frame CornerRadius="5" >
+                    <Grid>
+                        <Grid RowDefinitions="Auto, Auto, Auto">
+                            <Grid>
+                                <StackLayout>
+                                    <Label Style="{DynamicResource TitleStyle}" Text="Description"/>
+                                    <Label Grid.Row="1" Style="{DynamicResource DescriptionStyle}" TextColor="#3B3B3B" Text="{Binding Description}" />
+                                    <Label Grid.Row="2" Style="{DynamicResource TitleStyle}" Text="Specifikation" />
+                                    <Label Grid.Row="3" Style="{DynamicResource DescriptionStyle}" Text="{Binding Specifikation}"/>
+                                </StackLayout>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </Grid>
+    </ScrollView>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="TitleStyle">
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="FontSize" Value="24"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
+            </Style>
+            <Style TargetType="Label" x:Key="DescriptionStyle">
+                <Setter Property="TextColor" Value="Black"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+</ContentPage>
