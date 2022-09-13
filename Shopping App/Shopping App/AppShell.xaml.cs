@@ -7,10 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Shopping_App
 {
@@ -21,7 +19,7 @@ namespace Shopping_App
         {
             InitializeComponent();
             OnAppearing();
-            _ViewModel = new LoginViewModel();              
+            _ViewModel = new LoginViewModel();
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(SearchItemPage), typeof(SearchItemPage));
@@ -34,10 +32,10 @@ namespace Shopping_App
             Routing.RegisterRoute(nameof(MyProductsPage), typeof(MyProductsPage));
             Routing.RegisterRoute(nameof(EditPage), typeof(EditPage));
             Routing.RegisterRoute(nameof(ChatPage), typeof(ChatPage));
-            Routing.RegisterRoute(nameof(CartPage), typeof(CartPage));            
+            Routing.RegisterRoute(nameof(CartPage), typeof(CartPage));
         }
         protected override async void OnAppearing()
-        {            
+        {
             base.OnAppearing();
             var getItems = await App.Database.GetItemsAsync();
 
@@ -57,9 +55,12 @@ namespace Shopping_App
                         newitem.Specifikation = item.Specifikation;
                         newitem.Image = item.Image;
                         newitem.Price = item.Price;
-                        newitem.Quantity = 2;                        
+                        newitem.Quantity = 2;
                     }
-                    await App.Database.SaveItemAsync(newitem);
+                    if (!App.Database.GetItemsAsync().Result.Any(p => p.Title == newitem.Title))
+                    {
+                        await App.Database.SaveItemAsync(newitem);
+                    }
                 }
             }
         }

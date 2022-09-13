@@ -1,9 +1,5 @@
 ﻿using Shopping_App.Models;
 using Shopping_App.Views;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using Xamarin.Forms;
 
 namespace Shopping_App.ViewModels
 {
@@ -21,13 +17,13 @@ namespace Shopping_App.ViewModels
         public CartViewModel(int itemId)
         {
             Title = "Cart";
-            item = new Item();            
-            addtocart(itemId);            
+            item = new Item();
+            addtocart(itemId);
         }
         public async void addtocart(int itemid)
         {
             Item getitem = await App.Database.GetItemAsync(itemid);
-            cartPage = new CartPage(getitem);            
+            cartPage = new CartPage(getitem);
         }
     }
 }

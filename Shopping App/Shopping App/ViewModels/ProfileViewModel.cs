@@ -1,16 +1,14 @@
 ﻿using Shopping_App.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Shopping_App.ViewModels
 {
     [QueryProperty(nameof(ProfileId), nameof(ProfileId))]
-    public class ProfileViewModel: BaseViewModel
+    public class ProfileViewModel : BaseViewModel
     {
         public Command LoadProfileCommand { get; }
         public ObservableCollection<User> Users { get; }
@@ -55,7 +53,7 @@ namespace Shopping_App.ViewModels
                 IsBusy = false;
             }
         }
-        
+
         public async void LoadUserId(int UserId)
         {
             try

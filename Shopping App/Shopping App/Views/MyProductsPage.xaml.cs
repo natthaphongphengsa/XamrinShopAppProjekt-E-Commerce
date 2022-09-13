@@ -1,13 +1,9 @@
 ﻿using Shopping_App.Models;
-using Shopping_App.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Shopping_App.Views
 {
@@ -56,7 +52,7 @@ namespace Shopping_App.Views
         }
 
         async void OnDeleteSwipe(object sender, EventArgs e)
-        {            
+        {
             SwipeItem itemselected = sender as SwipeItem;
             products.Add(itemselected.BindingContext as Item);
             foreach (var names in products)
@@ -107,7 +103,7 @@ namespace Shopping_App.Views
                 await Shell.Current.GoToAsync($"{nameof(EditPage)}?{nameof(EditPage.ItemId)}={itemId}");
                 products.Clear();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 await DisplayAlert("Edit", "Failed to edit this product", "Cancel");
                 products.Clear();

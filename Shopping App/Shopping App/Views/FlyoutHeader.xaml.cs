@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Shopping_App.Views
@@ -19,11 +13,13 @@ namespace Shopping_App.Views
         }
         async void OnAppearing()
         {
-            string id = Application.Current.Properties["LogInId"].ToString();
-            var item = await App.Database.GetUserAsync(int.Parse(id));
-            ProfileImage.Source = item.image;
-
-
+            //string isLoggedIn = Application.Current.Properties["isLoggedIn"].ToString();
+            //if (isLoggedIn == "True")
+            //{
+            //    string id = Application.Current.Properties["isLoggedIn"].ToString();
+            //    var item = await App.Database.GetUserAsync(int.Parse(id));
+            //    ProfileImage.Source = item.image;
+            //}
         }
     }
 }

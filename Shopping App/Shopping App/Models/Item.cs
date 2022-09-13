@@ -1,6 +1,5 @@
 ﻿using SQLite;
 using System;
-using System.Collections.Generic;
 
 namespace Shopping_App.Models
 {
@@ -16,7 +15,7 @@ namespace Shopping_App.Models
         public string Image { get; set; }
         public string Quality { get; set; }
         public int Quantity { get; set; }
-        public decimal Price { get; set; }        
+        public decimal Price { get; set; }
 
         public DateTime Date { get; set; }
         public string Filename { get; internal set; }

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -31,7 +27,7 @@ namespace Shopping_App.ViewModels
         public string Quality { get => quality; set => SetProperty(ref quality, value); }
         public int Quantity { get => quantity; set => SetProperty(ref quantity, value); }
         public decimal Price { get => price; set => SetProperty(ref price, value); }
-        
+
 
         public int ItemId { get { return ItemId; } set { itemId = value; LoadItemId(value); } }
 
@@ -73,7 +69,7 @@ namespace Shopping_App.ViewModels
 
         private void AddToCartAsync()
         {
-            cartviewmodel = new CartViewModel(itemId);            
+            cartviewmodel = new CartViewModel(itemId);
         }
 
         private void AvailableStatus()
@@ -147,7 +143,7 @@ namespace Shopping_App.ViewModels
                 Quality = item.Quality;
                 Quantity = item.Quantity;
                 Price = item.Price;
-                
+
             }
             catch (Exception)
             {

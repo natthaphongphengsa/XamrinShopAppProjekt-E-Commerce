@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Shopping_App.Data;
+using System;
 using System.IO;
-using Shopping_App.Data;
-using Shopping_App.Models;
 using Xamarin.Forms;
 
 namespace Shopping_App
@@ -33,7 +32,7 @@ namespace Shopping_App
 
         protected override void OnStart()
         {
-            
+
         }
 
         protected override void OnSleep()

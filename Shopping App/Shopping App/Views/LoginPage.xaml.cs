@@ -1,12 +1,9 @@
 ﻿using Shopping_App.Models;
 using Shopping_App.ViewModels;
 using System;
-using System.Threading.Tasks;
-using System.Windows.Input;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xamarin.Essentials;
-using System.Collections.Generic;
 
 namespace Shopping_App.Views
 {
@@ -15,7 +12,7 @@ namespace Shopping_App.Views
     public partial class LoginPage : ContentPage
     {
         public bool isLoggedIn;
-        public bool isLoggedOut { get; set; }        
+        public bool isLoggedOut { get; set; }
 
         public AppShell AppShell { get; }
         LoginViewModel _ViewModel;
@@ -23,7 +20,7 @@ namespace Shopping_App.Views
         public LoginPage()
         {
             InitializeComponent();
-            //AppShell = new AppShell();
+            AppShell = new AppShell();
             BindingContext = _ViewModel = new LoginViewModel();
         }
         protected override async void OnAppearing()
@@ -38,8 +35,7 @@ namespace Shopping_App.Views
                 Email = "Natthaphong@hotmail.com",
                 Usertype = "Admin",
             };
-            var user = await App.Database.GetUsersAsync();
-            if (user.Count == 0)
+            if (!App.Database.GetUsersAsync().Result.Any(c => c.Email == admin.Email))
             {
                 await App.Database.SaveUserAsync(admin);
             }
@@ -55,7 +51,7 @@ namespace Shopping_App.Views
 
             if (isLoggedIn)
             {
-                await Shell.Current.GoToAsync($"//{nameof(ItemsPage)}");                
+                await Shell.Current.GoToAsync($"//{nameof(ItemsPage)}");
             }
         }
         async void SignInClicked(Object sender, EventArgs e)

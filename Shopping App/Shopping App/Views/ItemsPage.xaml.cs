@@ -1,17 +1,12 @@
-﻿using Newtonsoft.Json;
-using Shopping_App.Models;
+﻿using Shopping_App.Models;
 using Shopping_App.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Shopping_App.Views
-{    
+{
     public partial class ItemsPage : ContentPage
     {
         ItemsViewModel _viewModel;
@@ -28,16 +23,16 @@ namespace Shopping_App.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            var products = await App.Database.GetItemsAsync();
+            var products = App.Database.GetItemsAsync().Result.ToList();
             foreach (var item in products)
             {
                 Items.Add(item);
-            }            
+            }
             ItemsListView.ItemsSource = Items;
         }
 
         internal async void Refresh()
-        {            
+        {
             try
             {
                 ItemsListView.ItemsSource = Items;
@@ -65,7 +60,7 @@ namespace Shopping_App.Views
 
         public async void FilterEntry_SelectedIndexChangedAsync(object sender, EventArgs e)
         {
-            var products = await App.Database.GetItemsAsync();            
+            var products = await App.Database.GetItemsAsync();
             string type = FilterEntry.Items[FilterEntry.SelectedIndex];
             Items.Clear();
             switch (type)
@@ -75,7 +70,7 @@ namespace Shopping_App.Views
                     foreach (var P in p)
                     {
                         Items.Add(P);
-                    }                    
+                    }
                     break;
                 case "High price first":
                     var h = products.OrderByDescending(c => c.Price);
@@ -98,11 +93,11 @@ namespace Shopping_App.Views
                         Items.Add(A);
                     }
                     break;
-                case "SecoundHand":                    
+                case "SecoundHand":
                     break;
-                case "Brand new":                    
+                case "Brand new":
                     break;
-                case "None":                    
+                case "None":
                     foreach (var A in products)
                     {
                         Items.Add(A);

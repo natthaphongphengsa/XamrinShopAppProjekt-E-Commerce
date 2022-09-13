@@ -1,10 +1,7 @@
 ﻿using Shopping_App.Models;
-using Shopping_App.Views;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Text;
 using Xamarin.Forms;
 
 namespace Shopping_App.ViewModels

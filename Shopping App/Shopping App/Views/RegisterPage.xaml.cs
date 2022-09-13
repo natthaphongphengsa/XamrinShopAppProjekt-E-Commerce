@@ -1,10 +1,10 @@
-﻿using Android.Graphics;
-using Plugin.Media;
+﻿using Plugin.Media;
 using Shopping_App.Models;
 using System;
 using System.IO;
 using System.Text.RegularExpressions;
 using Xamarin.Forms;
+using Android.Graphics;
 
 namespace Shopping_App.Views
 {
@@ -14,7 +14,7 @@ namespace Shopping_App.Views
         public RegisterPage()
         {
             InitializeComponent();
-            BindingContext = new User();            
+            BindingContext = new User();
         }
         //void CreateUserAccount(object sender, EventArgs e)
         //{
@@ -64,7 +64,7 @@ namespace Shopping_App.Views
 
             var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
             {
-                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Full                
+                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Full
             });
 
             byte[] imageArray = File.ReadAllBytes(file.Path);

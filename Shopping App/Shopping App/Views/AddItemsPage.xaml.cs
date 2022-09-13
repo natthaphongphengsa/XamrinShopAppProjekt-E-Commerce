@@ -1,13 +1,8 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Plugin.Media;
+﻿using Plugin.Media;
 using Shopping_App.Models;
 using Shopping_App.ViewModels;
-using Xamarin.Essentials;
+using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Shopping_App.Views
 {
@@ -36,7 +31,7 @@ namespace Shopping_App.Views
         }
         protected override void OnAppearing()
         {
-            base.OnAppearing();        
+            base.OnAppearing();
 
             // Retrieve all the notes from the database, and set them as the
             // data source for the CollectionView.
@@ -59,7 +54,7 @@ namespace Shopping_App.Views
             });
             GetImage.Source = file.Path;
             _Viewmodel.Image = file.Path;
-            
+
         }
         private void QualityEntry_SelectedIndexChangedAsync(object sender, EventArgs e)
         {

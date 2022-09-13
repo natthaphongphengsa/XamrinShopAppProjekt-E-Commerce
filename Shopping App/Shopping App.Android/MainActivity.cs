@@ -2,7 +2,6 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
-using Xamarin.Forms;
 
 namespace Shopping_App.Droid
 {

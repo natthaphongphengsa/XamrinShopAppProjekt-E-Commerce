@@ -3,14 +3,8 @@ using Plugin.Media;
 using Shopping_App.Models;
 using Shopping_App.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.IO;
-using System.Threading.Tasks;
-using Xamarin.Essentials;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Shopping_App.Views
 {
@@ -48,7 +42,7 @@ namespace Shopping_App.Views
                 {
                     ProfileImage.Source = "EmptyProfileImage.png";
                 }
-                
+
                 ProfileBackground.Source = "BackgroundImage.png";
             }
             return;

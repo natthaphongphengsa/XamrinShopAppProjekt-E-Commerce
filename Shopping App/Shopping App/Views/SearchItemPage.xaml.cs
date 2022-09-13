@@ -1,10 +1,8 @@
 ﻿using Shopping_App.Models;
 using Shopping_App.ViewModels;
-using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Shopping_App.Views
@@ -12,7 +10,7 @@ namespace Shopping_App.Views
     public partial class SearchItemPage : ContentPage
     {
         ItemsViewModel _viewModel;
-        List<Item> products = new List<Item>();        
+        List<Item> products = new List<Item>();
         public Item Item { get; set; }
 
         public SearchItemPage()
@@ -33,8 +31,8 @@ namespace Shopping_App.Views
 
         private void Searchable_SearchButtonPressed(object sender, EventArgs e)
         {
-            var keyword = Searchable.Text;  
-            
+            var keyword = Searchable.Text;
+
             var suggestion = products.Where(c => c.Title.Contains(keyword));
             //var s = from c in products where c.Contains(keyword) select c;
             SearchResultListView.ItemsSource = suggestion.ToList();

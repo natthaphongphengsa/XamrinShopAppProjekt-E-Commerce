@@ -1,19 +1,19 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using Shopping_App.Models;
 using SQLite;
-using Shopping_App.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Shopping_App.Data
 {
     public class MyDatabase
     {
-        public readonly SQLiteAsyncConnection database;        
+        public SQLiteAsyncConnection database;
 
         public MyDatabase(string dbPath)
         {
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<Item>().Wait();
-            database.CreateTableAsync<User>().Wait();         
+            database.CreateTableAsync<User>().Wait();
         }
         #region Products
         public Task<List<Item>> GetItemsAsync()
@@ -29,7 +29,7 @@ namespace Shopping_App.Data
                             .FirstOrDefaultAsync();
         }
         public Task<int> SaveItemAsync(Item item)
-        {            
+        {
             //var i = GetItemAsync(item.Id);
             if (item.Id != 0)
             {

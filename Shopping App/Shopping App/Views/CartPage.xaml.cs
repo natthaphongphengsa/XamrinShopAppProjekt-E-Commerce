@@ -3,11 +3,8 @@ using Shopping_App.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Shopping_App.Views
 {
@@ -48,7 +45,7 @@ namespace Shopping_App.Views
                 string des = Application.Current.Properties["des"].ToString();
                 //string spec = Application.Current.Properties["spec"].ToString();
                 //string quality = Application.Current.Properties["quality"].ToString();
-                string quantity = Application.Current.Properties["quantity"].ToString();                
+                string quantity = Application.Current.Properties["quantity"].ToString();
                 string price = Application.Current.Properties["price"].ToString();
 
                 items = new Item()
@@ -59,31 +56,31 @@ namespace Shopping_App.Views
                     Quality = "Brand new",
                     Quantity = int.Parse(quantity),
                     Price = decimal.Parse(price),
-            };
-            var i = item.Find(t => t.Title == items.Title);
-            if (i == null)
-            {
-                item.Add(items);
+                };
+                var i = item.Find(t => t.Title == items.Title);
+                if (i == null)
+                {
+                    item.Add(items);
+                }
+                Myproducts.ItemsSource = item;
             }
-            Myproducts.ItemsSource = item;
         }
-    }
 
-    public void Loadproducts()
-    {
-        IsBusy = true;
-        try
+        public void Loadproducts()
         {
-            Myproducts.ItemsSource = item;
-        }
-        catch (Exception)
-        {
-            Debug.WriteLine("Error could'n load");
-        }
-        finally
-        {
-            IsBusy = false;
+            IsBusy = true;
+            try
+            {
+                Myproducts.ItemsSource = item;
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("Error could'n load");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
-}
 }

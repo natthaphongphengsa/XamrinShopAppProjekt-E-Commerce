@@ -2,11 +2,6 @@
 using Shopping_App.Models;
 using Shopping_App.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,7 +15,7 @@ namespace Shopping_App.Views
         EditItemViewModel _ViewModel;
 
         public new int Id { get; set; }
-        public int ItemId { get { return ItemId; } set { Id = value; } }        
+        public int ItemId { get { return ItemId; } set { Id = value; } }
 
         public EditPage()
         {

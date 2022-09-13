@@ -1,13 +1,9 @@
-﻿using Newtonsoft.Json;
-using Shopping_App.Models;
+﻿using Shopping_App.Models;
 using Shopping_App.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -28,11 +24,11 @@ namespace Shopping_App.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";            
+            Title = "Browse";
             Items = new ObservableCollection<Item>();
-            #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             LoadItemsCommand = new Command(() => ExecuteLoadItemsCommandAsync());
-            #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             ItemTapped = new Command<Item>(OnItemSelected);
             SearchItemCommand = new Command(OnSearchButtom);
 
@@ -71,7 +67,7 @@ namespace Shopping_App.ViewModels
                 Debug.WriteLine(ex);
             }
             finally
-            {                            
+            {
                 IsBusy = false;
             }
 
@@ -80,7 +76,7 @@ namespace Shopping_App.ViewModels
         public new void OnAppearing()
         {
             IsBusy = true;
-            SelectedItem = null;            
+            SelectedItem = null;
         }
         public Item SelectedItem
         {
@@ -104,7 +100,7 @@ namespace Shopping_App.ViewModels
         {
             if (item == null)
                 return;
-            
+
             // This will push the ItemDetailPage onto the navigation stack
             await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
         }

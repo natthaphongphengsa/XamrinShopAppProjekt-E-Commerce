@@ -38,7 +38,7 @@
                     <Entry Style="{StaticResource LoginEntry}" x:Name="E_Username" Text="{Binding Username}"
                        Placeholder="Username" />
                     <!--<Label Style="{StaticResource LogingLabel}" x:Name="L_Password" Text="Please enter your Password"/>-->
-                    <Entry Style="{StaticResource LoginEntry}" x:Name="E_Password" Text="{Binding Password}"
+                    <Entry IsPassword="True" Style="{StaticResource LoginEntry}" x:Name="E_Password" Text="{Binding Password}"
                        Placeholder="Password"/>
                 </StackLayout>
                 <Grid Grid.Row="2">
